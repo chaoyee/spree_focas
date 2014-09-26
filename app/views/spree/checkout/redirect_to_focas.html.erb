@@ -1,0 +1,15 @@
+<% payment_service_for @order.number,
+                      @preferences[:merchant_id],
+                      service: :focas,
+                      html: { id: 'focas-form', method: :post } do |service| %>
+  <% service.lidm @order.number %>
+  <% service.amount @order.total.to_i.to_s %>
+  <% service.mer_id @preferences[:mer_id] %>
+  <% service.terminal_id @preferences[:terminal_id] %> 
+  <% service.local_date Time.now %>
+  <% service.local_time Time.now %>
+  <% service.client_back_url order_checkout_url(@order.id) %>
+  <% service.notify_url focas_notify_order_checkout_url(@order.id, payment_method_id: @payment_method_id) if Rails.env.production? %>
+  <% service.notify_url "https://127.0.0.1:3001/orders/#{@order.id}/checkout/focas_notify/#{@payment_method_id}" if Rails.env.development? %>
+  <%= submit_tag Spree.t(:press_to_process), class: 'button' %>
+<% end %>

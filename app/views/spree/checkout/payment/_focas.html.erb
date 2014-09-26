@@ -1,0 +1,4 @@
+<%= "#{Spree.t(:payment_method)}: #{payment_method.method_type}" %><br />
+<%= "#{Spree.t(:order_number)}: #{@order.number}" %><br />
+<%= "#{Spree.t(:amount)}: #{@order.total.to_i.to_s} #{@order.currency}" %><br /><br />
+<%= link_to Spree.t(:forward_to_credit_card_payment), redirect_to_focas_path(@order.id, payment_method.id), class: 'button' %>

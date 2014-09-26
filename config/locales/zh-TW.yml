@@ -1,0 +1,7 @@
+zh-TW:
+  spree:
+    forward_to_credit_card_payment: 按下至「信用卡付費頁面」
+    press_to_process: 按下後開始處理
+    focas_parameters_are_not_set: Focas付費方式之參數未設定
+    order_processed_successfully: 付費已經成功。
+    payment_has_been_cancelled: 付費未成功，已取消。
