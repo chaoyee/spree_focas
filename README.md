@@ -1,7 +1,7 @@
 SpreeFocas
 ==========
 
-Introduction goes here.
+SpreeFocas is the Focas payment method (http://www.fisc.com.tw/) for Spree using active_merchant_focas (https://github.com/chaoyee/active_merchant_focas).
 
 Installation
 ------------
@@ -24,7 +24,8 @@ Configuration
 
 Add following lines:
 
-```# /app/controllers/application_controller.rb
+# /app/controllers/application_controller.rb
+```
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
@@ -32,13 +33,14 @@ class ApplicationController < ActionController::Base
 end
 ```
 
-```# /config/application.rb
+# /config/application.rb
+```
 module Mystore
   class Application < Rails::Application
                      :
                      :
-      config.after_initialize do  
-           Rails.configuration.spree.payment_methods << Spree::BillingIntegration::Focas
+    config.after_initialize do  
+      Rails.configuration.spree.payment_methods << Spree::BillingIntegration::Focas
   end
 end
 ```
