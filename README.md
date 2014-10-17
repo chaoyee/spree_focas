@@ -24,7 +24,7 @@ Configuration
 
 Add following lines:
 
-# /app/controllers/application_controller.rb
+/app/controllers/application_controller.rb
 ```
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
 end
 ```
 
-# /config/application.rb
+/config/application.rb
 ```
 module Mystore
   class Application < Rails::Application
